@@ -1,18 +1,21 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    // Подключение плагина для работы с аннотациями (нужно для Room)
+    id 'kotlin-kapt'
+    // Подключение парселизации
+    id 'kotlin-parcelize'
 }
 
 android {
-    compileSdk 32
+    compileSdk Config.compile_sdk
 
     defaultConfig {
-        applicationId "com.food.meal.order.foodview"
-        minSdk 21
-        targetSdk 32
-        versionCode 1
-        versionName "1.0"
-
+        applicationId Config.application_id
+        minSdkVersion Config.min_sdk
+        targetSdkVersion Config.target_sdk
+        versionCode Release.version_code
+        versionName Release.version_name
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -23,21 +26,72 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility Config.java_version
+        targetCompatibility Config.java_version
     }
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    // Добавили разрешение на использование Binding
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
-
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.6.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    //AndroidX
+    implementation AndroidX.appcompat
+    //Kotlin
+    implementation Kotlin.ktx
+    implementation Kotlin.jdk7
+    implementation Kotlin.coroutinescore
+    implementation Kotlin.coroutinesandroid
+    //Design
+    implementation Design.material
+    implementation Design.constrlayout
+    // Lifecycle
+    implementation Lifecycle.extensions
+    // LiveData
+    implementation Lifecycle.ktx
+    // Lifecycles only (without ViewModel or LiveData)
+    implementation Lifecycle.runtimektx
+    implementation Lifecycle.process
+    implementation Lifecycle.java8
+    // Cicerony
+    implementation Cicerony.runtime
+    // RxJava
+    implementation RxJava.android
+    implementation RxJava.reactive
+    // OkHTTP
+    implementation OkHTTP.runtime
+    // Retrofit
+    implementation Retrofit.runtime
+    implementation Retrofit.gson
+    implementation Retrofit.rxJava2
+    implementation Retrofit.interceptor // Версия интерсептора должна быть такой же как и версия okHttp
+    implementation Retrofit.coroutinesAdapter
+    // Room
+    implementation Room.runtime
+    kapt Room.compiler
+    kapt Room.m1Support
+    implementation Room.rxJava3
+    implementation Room.ktx
+    // Coroutines
+    implementation Coroutines.android
+    // Glide
+    implementation Glide.runtime
+    kapt Glide.compiler
+    // Koin
+    //Koin core features
+    implementation Koin.core
+    //Koin main features for Android (Scope,ViewModel ...)
+    implementation Koin.android
+    //Koin Java Compatibility
+    implementation Koin.compat
+    // For Retrofit 2 coroutines
+    implementation Koin.retrofitcoroutines
+    // Koin for Tests
+    testImplementation Koin.testsandroidx
+    testImplementation Koin.testsio
 }
