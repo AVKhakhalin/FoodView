@@ -13,36 +13,45 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/city_title"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/city_chooser_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Москва"
-            android:textColor="@color/title_text_color"
-            android:textSize="16sp"
-            android:textStyle="bold"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="46dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/city_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Москва"
+                android:textColor="@color/title_text_color"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="14dp"
+                android:src="@drawable/ic_arrow_down"
+                app:layout_constraintBottom_toBottomOf="@id/city_title"
+                app:layout_constraintStart_toEndOf="@id/city_title"
+                app:layout_constraintTop_toTopOf="@id/city_title" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_arrow_down"
-            android:layout_marginLeft="14dp"
-            app:layout_constraintStart_toEndOf="@id/city_title"
-            app:layout_constraintTop_toTopOf="@id/city_title"
-            app:layout_constraintBottom_toBottomOf="@id/city_title"/>
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_qr_code"
             android:layout_marginRight="16dp"
+            android:src="@drawable/ic_qr_code"
+            app:layout_constraintBottom_toBottomOf="@id/city_chooser_container"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/city_title"
-            app:layout_constraintBottom_toBottomOf="@id/city_title"/>
+            app:layout_constraintTop_toTopOf="@id/city_chooser_container" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
