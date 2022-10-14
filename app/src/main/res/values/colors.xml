@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="primary_color">#FBFBFB</color>
+    <color name="title_text_color">#222831</color>
+    <color name="selected_kind_food_and_bottom_button_color">#FD3A69</color>
+    <color name="not_selected_kind_food_color">#C3C4C9</color>
+    <color name="border_and_price_color">#FD3A69</color>
+    <color name="ingredients_color">#AAAAAD</color>
+    <color name="selected_bottom_button_color">#FD3A69</color>
+    <color name="not_selected_bottom_button_color">#7B7B7B</color>
+
     <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>

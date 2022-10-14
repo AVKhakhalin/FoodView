@@ -8,21 +8,41 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header_menu"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@color/black"
+        android:layout_height="96dp"
+        android:background="?colorPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/city_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Верхнее меню"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Москва"
+            android:textColor="@color/title_text_color"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="46dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_down"
+            android:layout_marginLeft="14dp"
+            app:layout_constraintStart_toEndOf="@id/city_title"
+            app:layout_constraintTop_toTopOf="@id/city_title"
+            app:layout_constraintBottom_toBottomOf="@id/city_title"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_qr_code"
+            android:layout_marginRight="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/city_title"
+            app:layout_constraintBottom_toBottomOf="@id/city_title"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -36,13 +56,13 @@
         tools:ignore="RtlHardcoded">
 
         <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/flexible.example.appbar"
+            android:id="@+id/flexible_appbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:id="@+id/flexible.example.collapsing"
+                android:id="@+id/flexible_collapsing"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:contentScrim="?colorPrimary"
@@ -130,5 +150,4 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,10 +1,14 @@
 package com.food.meal.order.foodview.view
 
+import android.graphics.Typeface
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.food.meal.order.foodview.R
 import com.food.meal.order.foodview.databinding.ActivityMainBinding
+import com.food.meal.order.foodview.utils.FONT_ROBOTO
 import com.food.meal.order.foodview.view.foodadapter.FoodListRecyclerAdapter
 import com.food.meal.order.foodview.view.kindfoodadapter.KindFoodListRecyclerAdapter
 
@@ -41,7 +45,16 @@ class MainActivity: AppCompatActivity() {
             this, LinearLayoutManager.VERTICAL, false)
         foodListRecyclerView.adapter = FoodListRecyclerAdapter(foodList)
 
+        // Установка шрифтов элементам макета
+        setFontsToElements()
+
         // Отображение содержимого окна
         setContentView(binding.root)
     }
+
+    // Установка шрифтов элементам
+    private fun setFontsToElements() {
+        binding.cityTitle.typeface = Typeface.createFromAsset(assets, FONT_ROBOTO)
+    }
+
 }

@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/Projects/FoodView/app/src/main/res/drawable/ic_arrow_down.xml" value="0.216" />
+        <entry key="..\:/Android/Projects/FoodView/app/src/main/res/drawable/ic_qr_code.xml" value="0.216" />
         <entry key="..\:/Android/Projects/FoodView/app/src/main/res/layout/activity_main.xml" value="0.23294118300441247" />
         <entry key="..\:/Android/Projects/FoodView/app/src/main/res/layout/food_list_recyclerview_item.xml" value="0.30104166666666665" />
         <entry key="..\:/Android/Projects/FoodView/app/src/main/res/layout/kind_food_list_recyclerview_item.xml" value="0.303125" />
