@@ -1,11 +1,14 @@
 package com.food.meal.order.foodview.view.kindfoodadapter
 
+import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.food.meal.order.foodview.R
+import com.food.meal.order.foodview.utils.FONT_ROBOTO
+import com.food.meal.order.foodview.utils.FONT_SF_UI_DISPLAY
 
 class KindFoodListRecyclerAdapter(private val kindFoodList: List<String>):
     RecyclerView.Adapter<KindFoodListRecyclerAdapter.MyViewHolder>() {
@@ -21,8 +24,10 @@ class KindFoodListRecyclerAdapter(private val kindFoodList: List<String>):
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        // Установка названия еды
+        // Установка вида еды
         holder.kindFoodName.text = kindFoodList[position]
+        holder.kindFoodName.typeface =
+            Typeface.createFromAsset(holder.itemView.context.assets, FONT_SF_UI_DISPLAY)
     }
 
     override fun getItemCount() = kindFoodList.size

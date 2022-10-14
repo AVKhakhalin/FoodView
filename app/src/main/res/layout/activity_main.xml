@@ -29,7 +29,6 @@
                 android:text="@string/city_title_text"
                 android:textColor="@color/title_text_color"
                 android:textSize="@dimen/city_title_text_size"
-                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -112,7 +111,8 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/kind_food_container"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/kind_food_container_padding_bottom" >
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/kind_food_list"
@@ -122,7 +122,6 @@
                     android:orientation="horizontal"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -130,7 +129,8 @@
             android:id="@+id/food_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/food_list_margin_left"
+            android:layout_marginStart="@dimen/food_list_margin_start"
+            android:layout_marginEnd="@dimen/food_list_margin_end"
             android:orientation="vertical"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:layout_constraintStart_toStartOf="parent"

@@ -48,8 +48,6 @@ class MainActivity: AppCompatActivity() {
             this, LinearLayoutManager.VERTICAL, false)
         foodListRecyclerView.adapter = FoodListRecyclerAdapter(foodList)
 
-        Toast.makeText(this, "${foodList.size}", Toast.LENGTH_SHORT).show()
-
         // Установка шрифтов элементам макета
         setFontsToElements()
 
@@ -64,5 +62,4 @@ class MainActivity: AppCompatActivity() {
         binding.profileTitle.typeface = Typeface.createFromAsset(assets, FONT_INTER)
         binding.basketTitle.typeface = Typeface.createFromAsset(assets, FONT_INTER)
     }
-
 }
