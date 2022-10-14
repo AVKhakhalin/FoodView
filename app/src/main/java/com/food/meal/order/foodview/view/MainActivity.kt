@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.food.meal.order.foodview.databinding.ActivityMainBinding
 import com.food.meal.order.foodview.view.foodadapter.FoodListRecyclerAdapter
+import com.food.meal.order.foodview.view.kindfoodadapter.KindFoodListRecyclerAdapter
 
 class MainActivity: AppCompatActivity() {
     /** Исходные данные */ //region
@@ -33,7 +34,7 @@ class MainActivity: AppCompatActivity() {
         kindFoodListRecyclerView = binding.kindFoodList
         kindFoodListRecyclerView.layoutManager = LinearLayoutManager(
             this, LinearLayoutManager.HORIZONTAL, false)
-        kindFoodListRecyclerView.adapter = FoodListRecyclerAdapter(kindFoodList)
+        kindFoodListRecyclerView.adapter = KindFoodListRecyclerAdapter(kindFoodList)
         // Установка списка еды
         foodListRecyclerView = binding.foodList
         foodListRecyclerView.layoutManager = LinearLayoutManager(
