@@ -8,7 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header_menu"
         android:layout_width="match_parent"
-        android:layout_height="96dp"
+        android:layout_height="@dimen/header_menu_height"
         android:background="?colorPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -17,8 +17,8 @@
             android:id="@+id/city_chooser_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="46dp"
+            android:layout_marginStart="@dimen/city_chooser_container_margin_start"
+            android:layout_marginTop="@dimen/city_chooser_container_margin_top"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -26,18 +26,19 @@
                 android:id="@+id/city_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Москва"
+                android:text="@string/city_title_text"
                 android:textColor="@color/title_text_color"
-                android:textSize="16sp"
+                android:textSize="@dimen/city_title_text_size"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/city_arrow_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
-                android:layout_marginTop="3dp"
+                android:layout_marginStart="@dimen/city_arrow_icon_margin_start"
+                android:layout_marginTop="@dimen/city_arrow_icon_margin_top"
                 android:src="@drawable/ic_arrow_down"
                 app:layout_constraintBottom_toBottomOf="@id/city_title"
                 app:layout_constraintStart_toEndOf="@id/city_title"
@@ -45,9 +46,10 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/qr_code_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="16dp"
+            android:layout_marginEnd="@dimen/qr_code_image_margin_end"
             android:src="@drawable/ic_qr_code"
             app:layout_constraintBottom_toBottomOf="@id/city_chooser_container"
             app:layout_constraintEnd_toEndOf="parent"
@@ -56,9 +58,10 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/annonce.main.coordinator"
+        android:id="@+id/main_coordinator"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/main_coordinator_height"
+        android:background="@color/body_background_color"
         app:layout_constraintBottom_toTopOf="@id/footer_menu"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/header_menu"
@@ -75,7 +78,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:contentScrim="?colorPrimary"
-                app:expandedTitleMarginBottom="0dp"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                 <HorizontalScrollView
@@ -109,10 +111,11 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.core.widget.NestedScrollView
+            android:id="@+id/behavior_scroll"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="none"
-            app:behavior_overlapTop="0dp"
+            app:behavior_overlapTop="@dimen/behavior_scroll_overlap_top"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -142,16 +145,16 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/footer_menu"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="@dimen/footer_menu_height"
         android:background="?colorSecondary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/menu_container"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/menu_container_width"
             android:layout_height="match_parent"
-            android:layout_margin="4dp"
+            android:layout_margin="@dimen/menu_container_margin"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/profile_container"
             app:layout_constraintTop_toTopOf="parent">
@@ -169,10 +172,10 @@
                 android:id="@+id/menu_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Меню"
-                android:textColor="@color/selected_bottom_button_color"
-                android:textSize="12sp"
-                android:layout_marginBottom="3dp"
+                android:text="@string/menu_title_text"
+                android:textColor="@color/selected_footer_button_color"
+                android:textSize="@dimen/menu_title_text_size"
+                android:layout_marginBottom="@dimen/menu_title_margin_bottom"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
@@ -180,9 +183,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/profile_container"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/profile_container_width"
             android:layout_height="match_parent"
-            android:layout_margin="4dp"
+            android:layout_margin="@dimen/profile_container_margin"
             app:layout_constraintStart_toEndOf="@id/menu_container"
             app:layout_constraintEnd_toStartOf="@id/basket_container"
             app:layout_constraintTop_toTopOf="parent">
@@ -200,10 +203,10 @@
                 android:id="@+id/profile_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Профиль"
-                android:textColor="@color/not_selected_bottom_button_color"
-                android:textSize="12sp"
-                android:layout_marginBottom="3dp"
+                android:text="@string/profile_title_text"
+                android:textColor="@color/not_selected_footer_button_color"
+                android:textSize="@dimen/profile_title_text_size"
+                android:layout_marginBottom="@dimen/profile_title_margin_bottom"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" />
@@ -211,9 +214,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/basket_container"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/basket_container_width"
             android:layout_height="match_parent"
-            android:layout_margin="4dp"
+            android:layout_margin="@dimen/basket_container_margin"
             app:layout_constraintStart_toEndOf="@id/profile_container"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -231,10 +234,10 @@
                 android:id="@+id/basket_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Корзина"
-                android:textColor="@color/not_selected_bottom_button_color"
-                android:textSize="12sp"
-                android:layout_marginBottom="3dp"
+                android:text="@string/basket_title_text"
+                android:textColor="@color/not_selected_footer_button_color"
+                android:textSize="@dimen/basket_title_text_size"
+                android:layout_marginBottom="@dimen/basket_title_margin_bottom"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" />

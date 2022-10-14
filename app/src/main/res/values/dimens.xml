@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="header_menu_height">96dp</dimen>
+    <dimen name="city_chooser_container_margin_start">16dp</dimen>
+    <dimen name="city_chooser_container_margin_top">46dp</dimen>
+    <dimen name="city_title_text_size">16sp</dimen>
+    <dimen name="city_arrow_icon_margin_start">14dp</dimen>
+    <dimen name="city_arrow_icon_margin_top">3dp</dimen>
+    <dimen name="qr_code_image_margin_end">16dp</dimen>
+    <dimen name="main_coordinator_height">0dp</dimen>
+    <dimen name="behavior_scroll_overlap_top">0dp</dimen>
+    <dimen name="footer_menu_height">56dp</dimen>
+    <dimen name="menu_container_width">0dp</dimen>
+    <dimen name="menu_container_margin">4dp</dimen>
+    <dimen name="menu_title_text_size">12sp</dimen>
+    <dimen name="menu_title_margin_bottom">3dp</dimen>
+    <dimen name="profile_container_width">0dp</dimen>
+    <dimen name="profile_container_margin">4dp</dimen>
+    <dimen name="profile_title_text_size">12sp</dimen>
+    <dimen name="profile_title_margin_bottom">3dp</dimen>
+    <dimen name="basket_container_width">0dp</dimen>
+    <dimen name="basket_container_margin">4dp</dimen>
+    <dimen name="basket_title_text_size">12sp</dimen>
+    <dimen name="basket_title_margin_bottom">3dp</dimen>
+</resources>
