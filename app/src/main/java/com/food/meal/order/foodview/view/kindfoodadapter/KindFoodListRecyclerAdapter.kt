@@ -11,7 +11,7 @@ class KindFoodListRecyclerAdapter(private val kindFoodList: List<String>):
     RecyclerView.Adapter<KindFoodListRecyclerAdapter.MyViewHolder>() {
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        val kindFoodName: TextView = itemView.findViewById(R.id.kind_food_name)
+        val kindFoodName: TextView = itemView.findViewById(R.id.kind_food_button)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {

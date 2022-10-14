@@ -6,7 +6,9 @@
         <entry key="..\:/Android/Projects/FoodView/app/src/main/res/drawable/ic_arrow_down.xml" value="0.216" />
         <entry key="..\:/Android/Projects/FoodView/app/src/main/res/drawable/ic_menu_image.xml" value="0.216" />
         <entry key="..\:/Android/Projects/FoodView/app/src/main/res/drawable/ic_qr_code.xml" value="0.216" />
-        <entry key="..\:/Android/Projects/FoodView/app/src/main/res/layout/activity_main.xml" value="0.3529411863703219" />
+        <entry key="..\:/Android/Projects/FoodView/app/src/main/res/drawable/not_selected_buttons_kind_food_rounded_corners.xml" value="0.216" />
+        <entry key="..\:/Android/Projects/FoodView/app/src/main/res/drawable/rounded_corners.xml" value="0.216" />
+        <entry key="..\:/Android/Projects/FoodView/app/src/main/res/layout/activity_main.xml" value="0.16010498687664043" />
         <entry key="..\:/Android/Projects/FoodView/app/src/main/res/layout/food_list_recyclerview_item.xml" value="0.30104166666666665" />
         <entry key="..\:/Android/Projects/FoodView/app/src/main/res/layout/kind_food_list_recyclerview_item.xml" value="0.303125" />
       </map>

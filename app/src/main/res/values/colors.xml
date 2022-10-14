@@ -4,8 +4,10 @@
     <color name="body_background_color">#FBFBFB</color>
     <color name="footer_menu_background_color">#F0F0F0</color>
     <color name="title_text_color">#222831</color>
-    <color name="selected_kind_food_and_bottom_button_color">#FD3A69</color>
-    <color name="not_selected_kind_food_color">#C3C4C9</color>
+    <color name="selected_kind_food_and_bottom_background_color">#f4cdd6</color>
+    <color name="selected_kind_food_and_bottom_text_color">#FD3A69</color>
+    <color name="not_selected_kind_food_background_color">#FFFFFF</color>
+    <color name="not_selected_kind_food_text_color">#C3C4C9</color>
     <color name="border_and_price_color">#FD3A69</color>
     <color name="ingredients_color">#AAAAAD</color>
     <color name="selected_footer_button_color">#FD3A69</color>

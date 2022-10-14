@@ -22,4 +22,6 @@
     <dimen name="basket_container_margin">4dp</dimen>
     <dimen name="basket_title_text_size">12sp</dimen>
     <dimen name="basket_title_margin_bottom">3dp</dimen>
+    <dimen name="kind_food_list_margin_left">12dp</dimen>
+    <dimen name="food_list_margin_left">16dp</dimen>
 </resources>
