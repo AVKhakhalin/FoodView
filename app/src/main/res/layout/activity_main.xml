@@ -7,12 +7,31 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/roboto_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Пробный текст, написанный шрифтом Roboto"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/sf_ui_display_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Пробный текст, написанный шрифтом Sf Ui Display"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/roboto_text"/>
+
+    <TextView
+        android:id="@+id/inter_display_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Пробный текст, написанный шрифтом inter"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sf_ui_display_text"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
