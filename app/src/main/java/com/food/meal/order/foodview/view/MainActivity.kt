@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.food.meal.order.foodview.R
 import com.food.meal.order.foodview.databinding.ActivityMainBinding
+import com.food.meal.order.foodview.utils.FONT_INTER
 import com.food.meal.order.foodview.utils.FONT_ROBOTO
 import com.food.meal.order.foodview.view.foodadapter.FoodListRecyclerAdapter
 import com.food.meal.order.foodview.view.kindfoodadapter.KindFoodListRecyclerAdapter
@@ -55,6 +56,9 @@ class MainActivity: AppCompatActivity() {
     // Установка шрифтов элементам
     private fun setFontsToElements() {
         binding.cityTitle.typeface = Typeface.createFromAsset(assets, FONT_ROBOTO)
+        binding.menuTitle.typeface = Typeface.createFromAsset(assets, FONT_INTER)
+        binding.profileTitle.typeface = Typeface.createFromAsset(assets, FONT_INTER)
+        binding.basketTitle.typeface = Typeface.createFromAsset(assets, FONT_INTER)
     }
 
 }
