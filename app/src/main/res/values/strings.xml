@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">FoodView</string>
+    <string name="city_title_text">Москва</string>
+    <string name="menu_title_text">Меню</string>
+    <string name="profile_title_text">Профиль</string>
+    <string name="basket_title_text">Корзина</string>
+    <string name="food_name_tools_text">Еда</string>
+    <string name="food_ingredients_text_sample">Баварские колбаски, ветчина, пикантная пипперони, острая чоризо, томатны соус</string>
+    <string name="food_price_button_text_sample">от 300 р</string>
 </resources>

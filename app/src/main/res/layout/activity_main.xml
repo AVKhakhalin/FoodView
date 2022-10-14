@@ -3,16 +3,239 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header_menu"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_menu_height"
+        android:background="?colorPrimary"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/city_chooser_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/city_chooser_container_margin_start"
+            android:layout_marginTop="@dimen/city_chooser_container_margin_top"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/city_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/city_title_text"
+                android:textColor="@color/title_text_color"
+                android:textSize="@dimen/city_title_text_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/city_arrow_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/city_arrow_icon_margin_start"
+                android:layout_marginTop="@dimen/city_arrow_icon_margin_top"
+                android:src="@drawable/ic_arrow_down"
+                app:layout_constraintBottom_toBottomOf="@id/city_title"
+                app:layout_constraintStart_toEndOf="@id/city_title"
+                app:layout_constraintTop_toTopOf="@id/city_title" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/qr_code_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/qr_code_image_margin_end"
+            android:src="@drawable/ic_qr_code"
+            app:layout_constraintBottom_toBottomOf="@id/city_chooser_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/city_chooser_container" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/main_coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_coordinator_height"
+        android:background="@color/body_background_color"
+        app:layout_constraintBottom_toTopOf="@id/footer_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_menu"
+        tools:ignore="RtlHardcoded">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/flexible_appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/flexible_collapsing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentScrim="?colorPrimary"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="center">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/banner_left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/sign"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/banner_right"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/sign"
+                            app:layout_constraintStart_toEndOf="@id/banner_left"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </HorizontalScrollView>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/kind_food_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/kind_food_container_padding_bottom" >
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/kind_food_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/kind_food_list_margin_left"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/food_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/food_list_margin_start"
+            android:layout_marginEnd="@dimen/food_list_margin_end"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/kind_food_list" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/footer_menu"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/footer_menu_height"
+        android:background="?colorSecondary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/menu_container"
+            android:layout_width="@dimen/menu_container_width"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/menu_container_margin"
+            app:layout_constraintEnd_toStartOf="@id/profile_container"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/menu_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_menu_image"
+                app:layout_constraintBottom_toTopOf="@id/menu_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/menu_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/menu_title_margin_bottom"
+                android:text="@string/menu_title_text"
+                android:textColor="@color/selected_footer_button_color"
+                android:textSize="@dimen/menu_title_text_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/profile_container"
+            android:layout_width="@dimen/profile_container_width"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/profile_container_margin"
+            app:layout_constraintEnd_toStartOf="@id/basket_container"
+            app:layout_constraintStart_toEndOf="@id/menu_container"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/profile_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_profile_image"
+                app:layout_constraintBottom_toTopOf="@id/profile_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/profile_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/profile_title_margin_bottom"
+                android:text="@string/profile_title_text"
+                android:textColor="@color/not_selected_footer_button_color"
+                android:textSize="@dimen/profile_title_text_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/basket_container"
+            android:layout_width="@dimen/basket_container_width"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/basket_container_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/profile_container"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/basket_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_basket_image"
+                app:layout_constraintBottom_toTopOf="@id/basket_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/basket_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/basket_title_margin_bottom"
+                android:text="@string/basket_title_text"
+                android:textColor="@color/not_selected_footer_button_color"
+                android:textSize="@dimen/basket_title_text_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/kind_food_button"
+        android:layout_width="102dp"
+        android:layout_height="42dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/selected_buttons_kind_food_rounded_corners"
+        android:backgroundTint="@color/selected_kind_food_and_bottom_background_color"
+        android:layout_margin="4dp"
+        android:text="Пицца"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        android:textColor="@color/selected_kind_food_and_bottom_text_color"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
