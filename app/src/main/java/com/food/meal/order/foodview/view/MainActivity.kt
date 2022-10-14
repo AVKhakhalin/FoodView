@@ -2,11 +2,10 @@ package com.food.meal.order.foodview.view
 
 import android.graphics.Typeface
 import android.os.Bundle
-import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.food.meal.order.foodview.R
 import com.food.meal.order.foodview.databinding.ActivityMainBinding
 import com.food.meal.order.foodview.utils.FONT_INTER
 import com.food.meal.order.foodview.utils.FONT_ROBOTO
@@ -14,6 +13,7 @@ import com.food.meal.order.foodview.view.foodadapter.FoodListRecyclerAdapter
 import com.food.meal.order.foodview.view.kindfoodadapter.KindFoodListRecyclerAdapter
 
 class MainActivity: AppCompatActivity() {
+
     /** Исходные данные */ //region
     // Binding
     private lateinit var binding: ActivityMainBinding
@@ -21,6 +21,8 @@ class MainActivity: AppCompatActivity() {
     val kindFoodList: List<String> = listOf("Пицца", "Комбо", "Десерты", "Напитки",
         "Пицца", "Комбо", "Десерты", "Напитки", "Пицца", "Комбо", "Десерты", "Напитки")
     val foodList: List<String> = listOf("Пицца", "Изюм", "Мандарины", "Баклажаны", "Пицца", "Изюм",
+        "Мандарины", "Баклажаны", "Пицца", "Изюм", "Мандарины", "Баклажаны", "Пицца", "Изюм",
+        "Мандарины", "Баклажаны", "Пицца", "Изюм", "Мандарины", "Баклажаны", "Пицца", "Изюм",
         "Мандарины", "Баклажаны", "Пицца", "Изюм", "Мандарины", "Баклажаны", "Пицца", "Изюм",
         "Мандарины", "Баклажаны", "Пицца", "Изюм", "Мандарины", "Баклажаны", "Пицца", "Изюм",
         "Мандарины", "Баклажаны")
@@ -45,6 +47,8 @@ class MainActivity: AppCompatActivity() {
         foodListRecyclerView.layoutManager = LinearLayoutManager(
             this, LinearLayoutManager.VERTICAL, false)
         foodListRecyclerView.adapter = FoodListRecyclerAdapter(foodList)
+
+        Toast.makeText(this, "${foodList.size}", Toast.LENGTH_SHORT).show()
 
         // Установка шрифтов элементам макета
         setFontsToElements()
