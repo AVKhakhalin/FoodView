@@ -8,11 +8,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.food.meal.order.foodview.databinding.FragmentFoodViewBinding
 import com.food.meal.order.foodview.model.base.BaseFragment
+import com.food.meal.order.foodview.repo.retrofit.FoodRetrofit
+import com.food.meal.order.foodview.repo.retrofit.FoodRetrofitImpl
 import com.food.meal.order.foodview.utils.FONT_INTER
 import com.food.meal.order.foodview.utils.FONT_ROBOTO
 import com.food.meal.order.foodview.utils.FOOD_VIEW_FRAGMENT_SCOPE
 import com.food.meal.order.foodview.view.foodviewfragment.adapters.FoodListRecyclerAdapter
 import com.food.meal.order.foodview.view.foodviewfragment.adapters.KindFoodListRecyclerAdapter
+import org.koin.core.Koin
 import org.koin.core.qualifier.named
 import org.koin.core.scope.Scope
 import org.koin.java.KoinJavaComponent

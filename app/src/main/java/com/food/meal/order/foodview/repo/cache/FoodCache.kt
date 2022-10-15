@@ -1,4 +1,4 @@
 package com.food.meal.order.foodview.repo.cache
 
-interface RepoCache {
+interface FoodCache {
 }

@@ -2,13 +2,11 @@ package com.food.meal.order.foodview.di
 
 import com.food.meal.order.foodview.navigator.AppScreens
 import com.food.meal.order.foodview.navigator.AppScreensImpl
-import com.food.meal.order.foodview.repo.cache.RepoCache
-import com.food.meal.order.foodview.repo.cache.RepoCacheImpl
 import com.food.meal.order.foodview.repo.cache.room.FoodDatabase
 import com.food.meal.order.foodview.utils.CICERONE_NAME
 import com.food.meal.order.foodview.utils.FOOD_VIEW_FRAGMENT_SCOPE
 import com.food.meal.order.foodview.utils.MAIN_ACTIVITY_SCOPE
-import com.food.meal.order.foodview.utils.network.NetworkStatus
+import com.food.meal.order.foodview.utils.network.*
 import com.food.meal.order.foodview.utils.resources.ResourcesProvider
 import com.food.meal.order.foodview.utils.resources.ResourcesProviderImpl
 import com.food.meal.order.foodview.view.activity.MainActivityViewModel
@@ -60,4 +58,11 @@ val screens = module {
 val database = module {
     single { FoodDatabase.getInstance(get()) }
     single { get<FoodDatabase>().foodDao() }
+}
+
+val retrofit = module {
+    factory { BaseInterceptor() }
+    factory { provideOkHttpClient(get()) }
+    factory { provideForecastApi(get()) }
+    single { provideRetrofit(get()) }
 }
