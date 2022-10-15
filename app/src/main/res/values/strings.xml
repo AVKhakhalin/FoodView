@@ -15,7 +15,7 @@
     <string name="todo_option_title_text">Опционально:\n</string>
     <string name="todo_option_text_text">●\tOffline-режим: т.е. в случае, если нет доступа к сети, показывать последние загруженные данные(и ленту, и детали).</string>
     <string name="result_format_title_text">Результат работ на отправку:</string>
-    <string name="result_format_text_text">● apk-debug файл.\n● ссылка на репозиторий ()\n● ссылка на резюме.</string>
+    <string name="result_format_text_text">● apk-debug файл;\n● ссылка на репозиторий;\n● ссылка на резюме.</string>
     <string name="limitations_title_text">Ограничения на стек технологий:</string>
     <string name="limitations_text_text">● MVVM;\n● Clean Architecture;\n● Остальное на ваше усмотрение.</string>
     <string name="move_to_food_view_fragment_button_text">Проверить задание</string>
