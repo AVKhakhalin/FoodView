@@ -1,4 +1,4 @@
-package com.food.meal.order.foodview.view.kindfoodadapter
+package com.food.meal.order.foodview.view.foodviewfragment.adapters
 
 import android.graphics.Typeface
 import android.view.LayoutInflater
@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.food.meal.order.foodview.R
-import com.food.meal.order.foodview.utils.FONT_ROBOTO
 import com.food.meal.order.foodview.utils.FONT_SF_UI_DISPLAY
 
 class KindFoodListRecyclerAdapter(private val kindFoodList: List<String>):

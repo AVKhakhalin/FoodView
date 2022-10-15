@@ -1,4 +1,4 @@
-package com.food.meal.order.foodview.view.foodadapter
+package com.food.meal.order.foodview.view.foodviewfragment.adapters
 
 import android.graphics.Typeface
 import android.view.LayoutInflater

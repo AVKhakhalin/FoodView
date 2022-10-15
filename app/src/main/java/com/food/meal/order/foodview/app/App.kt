@@ -2,6 +2,7 @@ package com.food.meal.order.foodview.app
 
 import android.app.Application
 import com.food.meal.order.foodview.di.application
+import com.food.meal.order.foodview.di.screens
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -20,7 +21,7 @@ class App: Application() {
         // Koin
         startKoin {
             androidContext(applicationContext)
-            modules(listOf(application))
+            modules(listOf(application, screens))
         }
     }
 }
