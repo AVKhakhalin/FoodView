@@ -3,16 +3,20 @@ package com.food.meal.order.foodview.view.foodviewfragment
 import android.content.Context
 import android.graphics.Typeface
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.food.meal.order.foodview.databinding.FragmentFoodViewBinding
 import com.food.meal.order.foodview.model.base.BaseFragment
+import com.food.meal.order.foodview.model.data.AppState
 import com.food.meal.order.foodview.repo.retrofit.FoodRetrofit
 import com.food.meal.order.foodview.repo.retrofit.FoodRetrofitImpl
 import com.food.meal.order.foodview.utils.FONT_INTER
 import com.food.meal.order.foodview.utils.FONT_ROBOTO
 import com.food.meal.order.foodview.utils.FOOD_VIEW_FRAGMENT_SCOPE
+import com.food.meal.order.foodview.utils.LOG_TAG
 import com.food.meal.order.foodview.view.foodviewfragment.adapters.FoodListRecyclerAdapter
 import com.food.meal.order.foodview.view.foodviewfragment.adapters.KindFoodListRecyclerAdapter
 import org.koin.core.Koin
@@ -33,14 +37,7 @@ class FoodViewFragment:
     }
 
     // Временные данные для проверки работоспособности макета
-    val kindFoodList: List<String> = listOf("Пицца", "Комбо", "Десерты", "Напитки",
-        "Пицца", "Комбо", "Десерты", "Напитки", "Пицца", "Комбо", "Десерты", "Напитки")
-    val foodList: List<String> = listOf("Пицца", "Изюм", "Мандарины", "Баклажаны", "Пицца", "Изюм",
-        "Мандарины", "Баклажаны", "Пицца", "Изюм", "Мандарины", "Баклажаны", "Пицца", "Изюм",
-        "Мандарины", "Баклажаны", "Пицца", "Изюм", "Мандарины", "Баклажаны", "Пицца", "Изюм",
-        "Мандарины", "Баклажаны", "Пицца", "Изюм", "Мандарины", "Баклажаны", "Пицца", "Изюм",
-        "Мандарины", "Баклажаны", "Пицца", "Изюм", "Мандарины", "Баклажаны", "Пицца", "Изюм",
-        "Мандарины", "Баклажаны")
+    val kindFoodList: List<String> = listOf("Пицца", "Комбо", "Десерты", "Напитки")
     // Горизонтальный список видов еды
     lateinit var kindFoodListRecyclerView: RecyclerView
     // Вертикальный список еды
@@ -74,10 +71,49 @@ class FoodViewFragment:
         foodListRecyclerView = binding.foodList
         foodListRecyclerView.layoutManager = LinearLayoutManager(
             requireContext(), LinearLayoutManager.VERTICAL, false)
-        foodListRecyclerView.adapter = FoodListRecyclerAdapter(foodList)
+//        foodListRecyclerView.adapter = FoodListRecyclerAdapter(foodList)
 
         // Установка шрифтов элементам макета
         setFontsToElements()
+
+        // Инициализация ViewModel
+        initViewModel()
+    }
+
+    // Инициализация ViewModel
+    private fun initViewModel() {
+        val _viewModel: FoodViewFragmentViewModel by showFoodViewFragmentScope.inject()
+        viewModel = _viewModel
+        // Подписка на ViewModel
+        this.viewModel.subscribe().observe(viewLifecycleOwner) { renderData(it) }
+    }
+
+    // Отображение информации о еде
+    private fun renderData(appState: AppState) {
+        when (appState) {
+            is AppState.Success -> {
+                // Изменение внешнего вида фрагмента
+                foodListRecyclerView.visibility = View.VISIBLE
+                binding.progressBar.visibility = View.INVISIBLE
+                // Установка списка еды
+                appState.foodList?.let {
+                    foodListRecyclerView.adapter = FoodListRecyclerAdapter(it)
+                }
+            }
+            is AppState.Loading -> {
+                // Изменение внешнего вида фрагмента
+                foodListRecyclerView.visibility = View.INVISIBLE
+                binding.progressBar.visibility = View.VISIBLE
+            }
+            is AppState.Error -> {
+                // Изменение внешнего вида фрагмента
+                foodListRecyclerView.visibility = View.VISIBLE
+                binding.progressBar.visibility = View.INVISIBLE
+                // Уведомление пользователя об ошибке
+                Toast.makeText(requireActivity(), appState.error.message, Toast.LENGTH_LONG).show()
+            }
+            else -> {}
+        }
     }
 
     // Установка шрифтов элементам

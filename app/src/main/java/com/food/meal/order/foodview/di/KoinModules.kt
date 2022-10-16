@@ -1,11 +1,14 @@
 package com.food.meal.order.foodview.di
 
+import android.widget.ImageView
 import com.food.meal.order.foodview.navigator.AppScreens
 import com.food.meal.order.foodview.navigator.AppScreensImpl
 import com.food.meal.order.foodview.repo.cache.room.FoodDatabase
 import com.food.meal.order.foodview.utils.CICERONE_NAME
 import com.food.meal.order.foodview.utils.FOOD_VIEW_FRAGMENT_SCOPE
 import com.food.meal.order.foodview.utils.MAIN_ACTIVITY_SCOPE
+import com.food.meal.order.foodview.utils.imageloader.GlideImageLoader
+import com.food.meal.order.foodview.utils.imageloader.GlideImageLoaderImpl
 import com.food.meal.order.foodview.utils.network.*
 import com.food.meal.order.foodview.utils.resources.ResourcesProvider
 import com.food.meal.order.foodview.utils.resources.ResourcesProviderImpl
@@ -34,6 +37,8 @@ val application = module {
     single<NetworkStatus> { NetworkStatus(androidContext()) }
     // Получение доступа к ресурсам
     single<ResourcesProvider> { ResourcesProviderImpl(androidContext()) }
+    // Загрузка картинок
+    single<GlideImageLoader<ImageView>> { GlideImageLoaderImpl() }
 }
 
 val screens = module {

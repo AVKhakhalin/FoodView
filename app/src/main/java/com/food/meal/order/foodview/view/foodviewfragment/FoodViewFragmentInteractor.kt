@@ -5,5 +5,6 @@ import com.food.meal.order.foodview.repo.retrofit.FoodRetrofitImpl
 import org.koin.java.KoinJavaComponent
 
 class FoodViewFragmentInteractor {
-    val foodRetrofit: FoodRetrofit = FoodRetrofitImpl(KoinJavaComponent.getKoin().get())
+    val foodRetrofit: FoodRetrofit =
+        FoodRetrofitImpl(KoinJavaComponent.getKoin().get(), KoinJavaComponent.getKoin().get())
 }
