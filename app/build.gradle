@@ -19,6 +19,20 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    // Добавляем файл с API id и ключами
+    buildTypes.each {
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file("apikey.properties").newDataInputStream())
+        def foodApiId = properties.getProperty("food_api_id", "")
+        it.buildConfigField "String", "FOOD_API_ID", foodApiId
+        def foodApiKey = properties.getProperty("food_api_key", "")
+        it.buildConfigField "String", "FOOD_API_KEY", foodApiKey
+        def ingredientsApiId = properties.getProperty("ingredients_api_id", "")
+        it.buildConfigField "String", "INGREDIENTS_API_ID", ingredientsApiId
+        def ingredientsApiKey = properties.getProperty("ingredients_api_key", "")
+        it.buildConfigField "String", "INGREDIENTS_API_KEY", ingredientsApiKey
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -68,7 +82,7 @@ dependencies {
     // Retrofit
     implementation Retrofit.runtime
     implementation Retrofit.gson
-    implementation Retrofit.rxJava2
+    implementation Retrofit.rxJava3
     implementation Retrofit.interceptor // Версия интерсептора должна быть такой же как и версия okHttp
     implementation Retrofit.coroutinesAdapter
     // Room

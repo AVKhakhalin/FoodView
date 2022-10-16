@@ -17,7 +17,7 @@
     <application
         android:requestLegacyExternalStorage="true"
         android:largeHeap="true"
-
+        android:name=".app.App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -28,7 +28,7 @@
         android:theme="@style/Theme.FoodView"
         tools:targetApi="32">
         <activity
-            android:name=".view.MainActivity"
+            android:name=".view.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
