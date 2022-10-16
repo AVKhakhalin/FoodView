@@ -127,8 +127,6 @@ class FoodViewFragment:
             KindFoodListRecyclerAdapter(
                 object: OnListItemClickListener {
                     override fun onItemClick(selectedKindFoodIndex: Int) {
-                        Toast.makeText(requireContext(),  "!!! $selectedKindFoodIndex",
-                            Toast.LENGTH_SHORT).show()
                         viewModel.getListFood(selectedKindFoodIndex)
                     }
                 }

@@ -13,6 +13,13 @@ fun getKindFoodIndex(kindFood: String): Int {
     return -1
 }
 
+fun getKindFood(kindFoodIndex: Int): String {
+    return if ((kindFoodIndex >= 0) && (kindFoodIndex < KIND_FOOD_LIST_ENG.size))
+        KIND_FOOD_LIST_ENG[kindFoodIndex]
+    else
+        KIND_FOOD_LIST_ENG[0]
+}
+
 // Генератор цены еды
 fun getFoodPrice(): Int {
     return 300 + ((Math.random() - 0.5) * 50).toInt()

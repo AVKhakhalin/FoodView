@@ -50,11 +50,13 @@ class KindFoodListRecyclerAdapter(
         holder.kindFoodNameSelected.setOnClickListener {
             onListItemClickListener.onItemClick(position)
             // Обработка прежних выделенных элементов
-            oldViewSelect[position].visibility = View.VISIBLE
-            oldViewNotSelect[position].visibility = View.GONE
-            oldViewSelect[oldPosition].visibility = View.GONE
-            oldViewNotSelect[oldPosition].visibility = View.VISIBLE
-            oldPosition = position
+            if (oldPosition != position) {
+                oldViewSelect[position].visibility = View.VISIBLE
+                oldViewNotSelect[position].visibility = View.GONE
+                oldViewSelect[oldPosition].visibility = View.GONE
+                oldViewNotSelect[oldPosition].visibility = View.VISIBLE
+                oldPosition = position
+            }
         }
 
         // Установка шрифта и текста на кнопку для отображения отсутствия выделения
@@ -64,11 +66,13 @@ class KindFoodListRecyclerAdapter(
         holder.kindFoodNameNotSelected.setOnClickListener {
             onListItemClickListener.onItemClick(position)
             // Обработка прежних выделенных элементов
-            oldViewSelect[position].visibility = View.VISIBLE
-            oldViewNotSelect[position].visibility = View.GONE
-            oldViewSelect[oldPosition].visibility = View.GONE
-            oldViewNotSelect[oldPosition].visibility = View.VISIBLE
-            oldPosition = position
+            if (oldPosition != position) {
+                oldViewSelect[position].visibility = View.VISIBLE
+                oldViewNotSelect[position].visibility = View.GONE
+                oldViewSelect[oldPosition].visibility = View.GONE
+                oldViewNotSelect[oldPosition].visibility = View.VISIBLE
+                oldPosition = position
+            }
         }
 
         // Сохранение элементов вью

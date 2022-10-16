@@ -7,13 +7,11 @@ import com.food.meal.order.foodview.repo.cache.room.FoodDatabase
 import com.food.meal.order.foodview.utils.CICERONE_NAME
 import com.food.meal.order.foodview.utils.FOOD_VIEW_FRAGMENT_SCOPE
 import com.food.meal.order.foodview.utils.MAIN_ACTIVITY_SCOPE
-import com.food.meal.order.foodview.utils.imageloader.GlideImageLoader
 import com.food.meal.order.foodview.utils.imageloader.GlideImageLoaderImpl
 import com.food.meal.order.foodview.utils.network.*
 import com.food.meal.order.foodview.utils.resources.ResourcesProvider
 import com.food.meal.order.foodview.utils.resources.ResourcesProviderImpl
 import com.food.meal.order.foodview.view.activity.MainActivityViewModel
-import com.food.meal.order.foodview.view.foodviewfragment.FoodViewFragmentInteractor
 import com.food.meal.order.foodview.view.foodviewfragment.FoodViewFragmentViewModel
 import com.github.terrakok.cicerone.Cicerone
 import com.github.terrakok.cicerone.NavigatorHolder
@@ -38,7 +36,7 @@ val application = module {
     // Получение доступа к ресурсам
     single<ResourcesProvider> { ResourcesProviderImpl(androidContext()) }
     // Загрузка картинок
-    single<GlideImageLoader<ImageView>> { GlideImageLoaderImpl() }
+    single<GlideImageLoaderImpl> { GlideImageLoaderImpl() }
 }
 
 val screens = module {
@@ -51,11 +49,8 @@ val screens = module {
 
     // Scope для фрагмента с информацией о еде
     scope(named(FOOD_VIEW_FRAGMENT_SCOPE)) {
-        scoped {
-            FoodViewFragmentInteractor()
-        }
         viewModel {
-            FoodViewFragmentViewModel(getScope(FOOD_VIEW_FRAGMENT_SCOPE).get())
+            FoodViewFragmentViewModel()
         }
     }
 }
