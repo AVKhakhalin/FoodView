@@ -3,21 +3,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:id="@+id/kind_food_button_container"
+    android:layout_width="@dimen/kind_food_button_container_width"
+    android:layout_height="@dimen/kind_food_button_container_height">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/kind_food_button"
-        android:layout_width="102dp"
-        android:layout_height="42dp"
+        android:id="@+id/kind_food_button_selected"
+        android:layout_width="@dimen/kind_food_button_selected_width"
+        android:layout_height="@dimen/kind_food_button_selected_height"
         android:layout_centerInParent="true"
         android:background="@drawable/selected_buttons_kind_food_rounded_corners"
         android:backgroundTint="@color/selected_kind_food_and_bottom_background_color"
-        android:layout_margin="4dp"
-        android:text="Пицца"
-        android:textSize="16sp"
+        android:layout_margin="@dimen/kind_food_button_selected_margin"
+        android:text="@string/kind_food_button_selected_text"
+        style="?android:attr/borderlessButtonStyle"
+        android:textSize="@dimen/kind_food_button_selected_text_size"
         android:textAllCaps="false"
         android:textColor="@color/selected_kind_food_and_bottom_text_color"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/kind_food_button_not_selected"
+        android:layout_width="@dimen/kind_food_button_not_selected_width"
+        android:layout_height="@dimen/kind_food_button_not_selected_height"
+        android:layout_centerInParent="true"
+        android:background="@drawable/not_selected_buttons_kind_food_rounded_corners"
+        android:backgroundTint="@color/not_selected_kind_food_background_color"
+        android:layout_margin="@dimen/kind_food_button_not_selected_margin"
+        android:text="@string/kind_food_button_not_selected_text"
+        style="?android:attr/borderlessButtonStyle"
+        android:textSize="@dimen/kind_food_button_not_selected_text_size"
+        android:textAllCaps="false"
+        android:textColor="@color/not_selected_kind_food_text_color"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>

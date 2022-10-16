@@ -19,6 +19,7 @@ import com.food.meal.order.foodview.utils.FOOD_VIEW_FRAGMENT_SCOPE
 import com.food.meal.order.foodview.utils.LOG_TAG
 import com.food.meal.order.foodview.view.foodviewfragment.adapters.FoodListRecyclerAdapter
 import com.food.meal.order.foodview.view.foodviewfragment.adapters.KindFoodListRecyclerAdapter
+import com.food.meal.order.foodview.view.foodviewfragment.adapters.OnListItemClickListener
 import org.koin.core.Koin
 import org.koin.core.qualifier.named
 import org.koin.core.scope.Scope
@@ -62,20 +63,10 @@ class FoodViewFragment:
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Установка списка видов еды
-        kindFoodListRecyclerView = binding.kindFoodList
-        kindFoodListRecyclerView.layoutManager = LinearLayoutManager(
-            requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        kindFoodListRecyclerView.adapter = KindFoodListRecyclerAdapter(kindFoodList)
-        // Установка списка еды
-        foodListRecyclerView = binding.foodList
-        foodListRecyclerView.layoutManager = LinearLayoutManager(
-            requireContext(), LinearLayoutManager.VERTICAL, false)
-//        foodListRecyclerView.adapter = FoodListRecyclerAdapter(foodList)
-
+        // Установка список еды
+        initFoodLists()
         // Установка шрифтов элементам макета
         setFontsToElements()
-
         // Инициализация ViewModel
         initViewModel()
     }
@@ -86,6 +77,8 @@ class FoodViewFragment:
         viewModel = _viewModel
         // Подписка на ViewModel
         this.viewModel.subscribe().observe(viewLifecycleOwner) { renderData(it) }
+        // Получение текущего списка еды
+        this.viewModel.getListFood(0) // TODO: Заменить на текущее значение
     }
 
     // Отображение информации о еде
@@ -123,5 +116,26 @@ class FoodViewFragment:
         binding.profileTitle.typeface =
             Typeface.createFromAsset(requireContext().assets, FONT_INTER)
         binding.basketTitle.typeface = Typeface.createFromAsset(requireContext().assets, FONT_INTER)
+    }
+
+    // Установка списка видов еды
+    private fun initFoodLists() {
+        kindFoodListRecyclerView = binding.kindFoodList
+        kindFoodListRecyclerView.layoutManager = LinearLayoutManager(
+        requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        kindFoodListRecyclerView.adapter =
+            KindFoodListRecyclerAdapter(
+                object: OnListItemClickListener {
+                    override fun onItemClick(selectedKindFoodIndex: Int) {
+                        Toast.makeText(requireContext(),  "!!! $selectedKindFoodIndex",
+                            Toast.LENGTH_SHORT).show()
+                        viewModel.getListFood(selectedKindFoodIndex)
+                    }
+                }
+                , 1, kindFoodList) // TODO: Исправить на текущее значение
+        // Установка списка еды
+        foodListRecyclerView = binding.foodList
+        foodListRecyclerView.layoutManager = LinearLayoutManager(
+        requireContext(), LinearLayoutManager.VERTICAL, false)
     }
 }

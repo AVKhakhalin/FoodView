@@ -19,4 +19,6 @@
     <string name="limitations_title_text">Ограничения на стек технологий:</string>
     <string name="limitations_text_text">● MVVM;\n● Clean Architecture;\n● Остальное на ваше усмотрение.</string>
     <string name="move_to_food_view_fragment_button_text">Проверить задание</string>
+    <string name="kind_food_button_selected_text">Пицца</string>
+    <string name="kind_food_button_not_selected_text">Пицца</string>
 </resources>

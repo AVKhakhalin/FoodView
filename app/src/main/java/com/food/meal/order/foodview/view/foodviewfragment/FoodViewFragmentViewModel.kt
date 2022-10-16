@@ -19,4 +19,8 @@ class FoodViewFragmentViewModel(
     fun subscribe(): LiveData<AppState> {
         return liveDataForViewToObserve
     }
+
+    fun getListFood(selectedKindFoodIndex: Int) {
+
+    }
 }
